@@ -27,13 +27,34 @@ $(document).ready(function() {
                 if (movieLanguage == "en") {
                     movieLanguage = "English";
                 }
+                else if (movieLanguage=="it"){
+                    movieLanguage= "Italian";
+                }
+                else if (movieLanguage=="es"){
+                    movieLanguage="Spanish";
+                }
+                else if(movieLanguage=="fr"){
+                    movieLanguage="French";
+                }
+                else if(movieLanguage=="pt"){
+                    movieLanguage="Portuguese";
+                }
+                else if(movieLanguage=="zh"){
+                    movieLanguage="Chinese";
+                }
+                else if(movieLanguage=="ja"){
+                    movieLanguage="Japanese";
+                }
+                else if(movieLanguage=="de"){
+                    movieLanguage="German";
+                }
                 $("#moviePoster").html("<img class = 'img-fluid' src='" + finalPosterUrl + "'>");
-                $("#title").html("<h5>" + movieTitle + "</h5>");
-                $("#year").html("<h6>" + movieYear + "<h6>");
-                $("#rating").html("<h7>" + movieRating + "</h7>");
-                $("#language").html("<h7>" + movieLanguage + "</h7>");
+                $("#title").html("<h3>" + movieTitle + "</h3>");
+                $("#year").html("<h6>Release: " + movieYear + "<h6>");
+                $("#rating").html("<h6>Rating: " + movieRating + "</h6>");
+                $("#language").html("<h6>Language: " + movieLanguage + "</h6>");
                 $("#summary").html("<p>" + movieSummary + "</p><p><button type='button' class='btn btn-info' data-toggle='modal' data-target='#trailerModal' id='modalButton'>Click For Trailer</button></p>");
-                showTrailer(movieTitle)
+                showTrailer(movieTitle);
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) {
                 alert("some error");
@@ -61,13 +82,34 @@ $(document).ready(function() {
                 if (movieLanguage == "en") {
                     movieLanguage = "English";
                 }
+                 else if (movieLanguage=="it"){
+                    movieLanguage= "Italian";
+                }
+                else if (movieLanguage=="es"){
+                    movieLanguage="Spanish";
+                }
+                else if(movieLanguage=="fr"){
+                    movieLanguage="French";
+                }
+                else if(movieLanguage=="pt"){
+                    movieLanguage="Portuguese";
+                }
+                else if(movieLanguage=="zh"){
+                    movieLanguage="Chinese";
+                }
+                else if(movieLanguage=="ja"){
+                    movieLanguage="Japanese";
+                }
+                else if(movieLanguage=="de"){
+                    movieLanguage="German";
+                }
                 $("#moviePoster").html("<img class='img-fluid' src='" + finalPosterUrl + "'>");
-                $("#title").html("<h5>" + movieTitle + "</h5>");
-                $("#year").html("<h6>" + movieYear + "<h6>");
-                $("#rating").html("<h7>" + movieRating + "</h7>");
-                $("#language").html("<h7>" + movieLanguage + "</h7>");
+                $("#title").html("<h3>" + movieTitle + "</h3>");
+                $("#year").html("<h6>Release: " + movieYear + "<h6>");
+                $("#rating").html("<h6>Rating: " + movieRating + "</h6>");
+                $("#language").html("<h6>Language: " + movieLanguage + "</h6>");
                 $("#summary").html("<p>" + movieSummary + "</p><p><button type='button' class='btn btn-info' data-toggle='modal' data-target='#trailerModal' id='modalButton'>Click For Trailer</button></p>");
-                showTrailer(movieTitle)
+                showTrailer(movieTitle);
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) {
                 alert("some error");
