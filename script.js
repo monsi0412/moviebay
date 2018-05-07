@@ -49,7 +49,7 @@ $(document).ready(function() {
                     movieLanguage="Hindi";
                 }
                 $("#moviePoster").html("<img class = 'img-fluid' src='" + finalPosterUrl + "'>");
-                $("#title").html("<h3>" + movieTitle + "</h3>");
+                $("#title").html("<h3 id='movieTitle'>" + movieTitle + "</h3>");
                 $("#year").html("<h6>Release: " + movieYear + "<h6>");
                 $("#rating").html("<h6>Rating: " + movieRating + "</h6>");
                 $("#language").html("<h6>Language: " + movieLanguage + "</h6>");
