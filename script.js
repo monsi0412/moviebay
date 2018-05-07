@@ -6,12 +6,12 @@ $(document).ready(function() {
         }
     });
 
-    $("#random").click(function() {
-        var randomNum = Math.floor(Math.random() * (600 - 2)) + 2;
+   function rngMovie() {
+        var randomNum = Math.floor(Math.random() * (128188)) + 1;
         var posterBaseUrl = "https://image.tmdb.org/t/p/w500";
 
         $.ajax({
-            url: "https://api.themoviedb.org/3/movie/" + randomNum + "?api_key=2f895a9ca3eb8c4703edbfba5c8369b1",
+            url: "https://api.themoviedb.org/3/movie/" + randomNum + "?api_key=2f895a9ca3eb8c4703edbfba5c8369b1&include_adult=false",
             method: "GET",
             success: function(response) {
                 var movieTitle = response.title;
@@ -48,21 +48,22 @@ $(document).ready(function() {
                 else if (movieLanguage=="hi"){
                     movieLanguage="Hindi";
                 }
-                $("#moviePoster").html("<img class = 'img-fluid' src='" + finalPosterUrl + "'>");
+                $("#moviePoster").html("<img id='moviePosterImg' class = 'img-fluid' src='" + finalPosterUrl + "'>");
                 $("#title").html("<h3 id='movieTitle'>" + movieTitle + "</h3>");
-                $("#year").html("<h6>Release: " + movieYear + "<h6>");
-                $("#rating").html("<h6>Rating: " + movieRating + "</h6>");
-                $("#language").html("<h6>Language: " + movieLanguage + "</h6>");
+                $("#year").html("<h6><b>Release:</b> " + movieYear + "<h6>");
+                $("#rating").html("<h6><b>Rating:</b> " + movieRating + "</h6>");
+                $("#language").html("<h6><b>Language:</b> " + movieLanguage + "</h6>");
                 $("#summary").html("<p>" + movieSummary + "</p><p><button type='button' class='btn btn-light' data-toggle='modal' data-target='#trailerModal' id='modalButton'>Click For Trailer</button></p>");
                 showTrailer(movieTitle);
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) {
-                alert("some error");
-            }
-        });
+                rngMovie();
+            } 
+        }); 
         $("#moviePosterCol").css({"background":"rgba(128,128,128,0.8)", "padding-top":"20px"});
         $("#movieInfo").css("background","rgba(128,128,128,0.8)");
-    });
+    }
+$("#random").click(rngMovie);
 
     $("#search").click(function() {
         var id = $('#movieInput').val();
@@ -106,11 +107,11 @@ $(document).ready(function() {
                 else if (movieLanguage=="hi"){
                     movieLanguage="Hindi";
                 }
-                $("#moviePoster").html("<img class='img-fluid' src='" + finalPosterUrl + "'>");
+                $("#moviePoster").html("<img id='moviePosterImg' class='img-fluid' src='" + finalPosterUrl + "'>");
                 $("#title").html("<h3 id='movieTitle'>" + movieTitle + "</h3>");
-                $("#year").html("<h6>Release: " + movieYear + "<h6>");
-                $("#rating").html("<h6>Rating: " + movieRating + "</h6>");
-                $("#language").html("<h6>Language: " + movieLanguage + "</h6>");
+                $("#year").html("<h6><b>Release:</b> " + movieYear + "<h6>");
+                $("#rating").html("<h6><b>Rating:</b> " + movieRating + "</h6>");
+                $("#language").html("<h6><b>Language:</b> " + movieLanguage + "</h6>");
                 $("#summary").html("<p>" + movieSummary + "</p><p><button type='button' class='btn btn-light' data-toggle='modal' data-target='#trailerModal' id='modalButton'>Click For Trailer</button></p>");
                 showTrailer(movieTitle);
             },
@@ -123,18 +124,39 @@ $(document).ready(function() {
         $("#movieInfo").css("background","rgba(128,128,128,0.8)");
 
     });
-
+    
+    
+    var videoId;
     function showTrailer(movietitle) {
-
         var url = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + movietitle + "%20trailer" + "&type=video&key=AIzaSyA_C6IlCDqhJm0p26r8m20OOAMkOAgnCcQ";
         $.getJSON(url, function(data) {
-            var videoId = data.items[0].id.videoId;
-            $("#youtubeTrailer").html('<iframe width="465" height="315" src="https://www.youtube.com/embed/' + videoId + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+            videoId = data.items[0].id.videoId;
+            $("#youtubeTrailer").html('<center><iframe width="90%" height="400" src="https://www.youtube.com/embed/' + videoId + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
             
         });
     }
+    
+    
+    // var videoId;
+    // function showTrailer(movietitle) {
+    //     console.log($("#trailerModal iframe"));
+    //     if($("#trailerModal iframe").length>1){
+    //         $("#trailerModal iframe").attr('src', "https://www.youtube.com/embed/" + videoId);
+    //     }
+    //     else{
+    //     var url = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + movietitle + "%20trailer" + "&type=video&key=AIzaSyA_C6IlCDqhJm0p26r8m20OOAMkOAgnCcQ";
+    //     $.getJSON(url, function(data) {
+    //         videoId = data.items[0].id.videoId;
+    //         $("#youtubeTrailer").html('<iframe width="90%" src="https://www.youtube.com/embed/' + videoId + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+            
+    //     });
+    //     }
+    // }
+    // width="465" height="315" 
 
-
+    // $("#trailerModal").on('hidden.bs.modal', function () {
+    //     $("#trailerModal iframe").removeAttr('src');
+    // });
 
 
 
