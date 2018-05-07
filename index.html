@@ -5,12 +5,14 @@
     <title>Moviebay</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Gothic+A1:300|Oranienbaum" rel="stylesheet">
     <!--<script src="jquery-3.3.1.min.js"></script>-->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script type="text/javascript" src="script.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="mbnew.png"/>
 </head>
 
 <body>
@@ -19,9 +21,9 @@
             
         </div>
         <h1>
-            Moviebay
+            <img src="mb big.png" class="img-fluid" id="logo">
         </h1>
-        <h7>
+        <h7 id="indexSub">
             Get info for any movie
         </h7>
         <div class="row spacer" style="height:25px;">
@@ -34,7 +36,7 @@
             <div class="col-6">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Movie Name" aria-label="Movie" id="movieInput">
-                    <button type="button" class="btn btn-info" id="search">Search</button>
+                    <button type="button" class="btn btn-light" id="search">Search</button>
                 </div>
 
             </div>
@@ -51,18 +53,15 @@
                     or...
                 </h3>
                 <p>
-                    <button type="button" class="btn btn-info" id="random">See a Random Movie</button>
+                    <button type="button" class="btn btn-light" id="random">See a Random Movie</button>
                 </p>
             </div>
             <div class="col-md-5">
 
             </div>
         </div>
-        <div class="row spacer" style="height:50px;">
-            
-        </div>
         <div class="row" id="movieResults">
-            <div class="col-md-1 resultsCol">
+            <div class="col-md-2 resultsCol">
 
             </div>
             <div class="col-md-3 resultsCol" id="moviePosterCol">
@@ -78,7 +77,10 @@
                 </div>
 
             </div>
-            <div class="col-md-4 resultsCol" id="movieInfo">
+            <div class="col-md-5 resultsCol" id="movieInfo">
+                <div class="row">
+                    <div class="col-12" style="height:90px;"></div>
+                </div>
                 <div class="row">
                     <div class="col-9" id="title">
 
@@ -101,17 +103,12 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 resultsCol" id="relatedMovies">
-
-            </div>
-            <div class="col-md-1 resultsCol">
+            <div class="col-md-2 resultsCol" id="relatedMovies">
 
             </div>
         </div>
-        <div class="row">
-            <div>
-                <div ></div>
-            </div>
+        <div class="row" style="height:100px">
+            
         </div>
     </div>
     <div class="modal" tabindex="-1" role="dialog" id="trailerModal">
