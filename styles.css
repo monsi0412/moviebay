@@ -1,13 +1,11 @@
 body{
     background-image:url("background.png");
-    background-repeat: no-repeat;
+    /*background-repeat: no-repeat;*/
     background-size:100% 100%;
     color:white;
     font-family: 'Gothic A1', sans-serif;
 }
-/*.resultsCol{*/
-/*    height:500px;*/
-/*}*/
+
 #moviePosterImg{
     margin:5px;
     margin-bottom: 10px;
